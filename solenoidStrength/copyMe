@@ -1,0 +1,8 @@
+#!/bin/csh -f
+
+
+
+
+scp -r * ftp:/userweb/ungaro/public_html/data/clas12/clas12BackgroundStudies/solenoidStrength
+
+
