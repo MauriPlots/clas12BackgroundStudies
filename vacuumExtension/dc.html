@@ -1,0 +1,125 @@
+<html>
+	 <head>
+		 <style type="text/css">
+			 #indextable { 
+				 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; 
+				 border-collapse: collapse; 
+			 } 
+			 #indextable td { 
+				 border: 1px solid #ddd; 
+				 padding: 6px; 
+			 } 
+			 #indextable tr:nth-child(even){background-color: #f2f2f2;} 
+			 #indextable tr:hover {background-color: #ddd;}
+			 #indextable td:hover {background-color: #119; color: white;}
+			 .button { 
+			 background-color: white; 
+			 color: black; 
+			 border: 2px solid #555555; 
+			 border-radius: 10%; 
+			 padding: 16px 32px; 
+			 text-align: center; 
+			 text-decoration: none; 
+			 display: inline-block; 
+			 font-size: 16px; 
+			 margin: 4px 2px; 
+			 -webkit-transition-duration: 0.2s; 
+			 transition-duration: 0.4s; 
+			 cursor: pointer; 
+			 } 
+			 .button:hover { 
+			 background-color: #555555; 
+			 color: white; 
+			 } 
+		 </style>
+		 <script>
+			 function popPic() {picDisplayed = window.open(document.DIST.src, document.DIST.src,'statusbar=no, scrollbars=auto, status=no, resizable=no, width=1050, height=1050');}
+			 var plot = "intocc";
+			 var region = "1";
+			 function showPic(row, col)
+			 {
+			    var dist = "img/"
+			    dist += "conf-"
+			    dist += row;
+			    dist += "_"
+			    dist += "zone-"
+			    dist += col;
+			    dist += "_plot-";
+			    dist += plot;
+			    dist += "_region-";
+			    dist += region;
+			    dist += ".png"
+			    document.DIST.src = dist
+			 }
+			 function changeplot()
+			 {
+				 var plotTitle = "plot " ;
+				 plotTitle += plot;
+				 document.getElementById("plotButtons").innerHTML = plotTitle;
+			 }
+			 function changeregion()
+			 {
+				 var regionTitle = "region " ;
+				 regionTitle += region;
+				 document.getElementById("regionButtons").innerHTML = regionTitle;
+			 }
+		 </script>
+	 </head>
+	 <body>
+		 <center>
+			 <table cellpadding=10> 
+				 <tr> 
+					 <td colspan=2> 
+						 <table> <tr>
+							 <td id="plotButtons" align=center colspan=4>plot intocc</td></tr><tr>
+							 <td><button class="button" onclick="javascript:plot='intocc' ; changeplot(); ">intocc</button></td>
+							 <td><button class="button" onclick="javascript:plot='occ' ; changeplot(); ">occ</button></td>
+							 <td><button class="button" onclick="javascript:plot='vertex' ; changeplot(); ">vertex</button></td>
+							 <td><button class="button" onclick="javascript:plot='zvertex' ; changeplot(); ">zvertex</button></td>
+						 </tr></table>
+					 </td> 
+				 </tr> 
+				 <tr> 
+					 <td colspan=2> 
+						 <table> <tr>
+							 <td id="regionButtons" align=center colspan=3>region 1</td></tr><tr>
+							 <td><button class="button" onclick="javascript:region='1' ; changeregion(); ">1</button></td>
+							 <td><button class="button" onclick="javascript:region='2' ; changeregion(); ">2</button></td>
+							 <td><button class="button" onclick="javascript:region='3' ; changeregion(); ">3</button></td>
+						 </tr></table>
+					 </td> 
+				 </tr> 
+				 <tr> 
+					 <td> 
+						 <table id="indextable" class="indextable"> 
+							 <tr> 
+								 <td> <sub> conf</sub> <sup> zone</sup> </td>
+								 <td>all</td>
+								 <td>beampipe</td>
+								 <td>target</td>
+								 <td>torus</td>
+							 </tr> 
+							 <tr> 
+								 <td>clas12VE</td>
+								 <td onclick="popPic()" onmouseover="showPic('clas12VE', 'all')" />
+								 <td onclick="popPic()" onmouseover="showPic('clas12VE', 'beampipe')" />
+								 <td onclick="popPic()" onmouseover="showPic('clas12VE', 'target')" />
+								 <td onclick="popPic()" onmouseover="showPic('clas12VE', 'torus')" />
+							 </tr> 
+							 <tr> 
+								 <td>clas12</td>
+								 <td onclick="popPic()" onmouseover="showPic('clas12', 'all')" />
+								 <td onclick="popPic()" onmouseover="showPic('clas12', 'beampipe')" />
+								 <td onclick="popPic()" onmouseover="showPic('clas12', 'target')" />
+								 <td onclick="popPic()" onmouseover="showPic('clas12', 'torus')" />
+							 </tr> 
+						 </table> 
+					 </td> 
+					 <td> 
+						 <img name = "DIST" width="650px" src="img/conf-clas12_zone-all_plot-zvertex_region-3.png"/> 
+					 </td> 
+				 </tr> 
+			 </table> 
+		 </center>
+	 </body>
+</html>
